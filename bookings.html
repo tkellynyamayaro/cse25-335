@@ -1,39 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stellar Cinemas – Bookings</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book tickets at Stellar Cinemas, Gaborone.">
+  <title>Stellar Cinemas – Bookings</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="logo">★ Stellar Cinemas</div>
-
-    <ul class="nav-links">
+  <header>
+    <nav class="navbar">
+      <div class="logo">★ Stellar Cinemas</div>
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="nowshowing.html">Now Showing</a></li>
-        <li><a href="movies.html">Movies</a></li>
-        <li><a href="bookings.html" class="active">Bookings</a></li>
+        <li><a href="bookings.html" class="active" aria-current="page">Bookings</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
+      </ul>
+    </nav>
+  </header>
 
+  <main>
 
-<!-- PAGE HEADER -->
-<section class="page-header">
-    <h1>Book Your Tickets</h1>
-    <p>Select your movie, date and seats below.</p>
-</section>
+    <section class="page-header" aria-label="Page title">
+      <h1>Book Your Tickets</h1>
+      <p>Select your movie, date and seats below.</p>
+    </section>
 
+    <div class="booking-wrapper">
 
-<!-- BOOKING FORM -->
+      <!-- LEFT: FORM -->
+      <div class="booking-form-card">
 
+        <h2>Booking Details</h2>
 
+        <!-- MOVIE -->
+        <div class="form-group">
+          <label for="movie">Movie *</label>
+          <select id="movie" required aria-required="true">
+            <option value="">Select a movie...</option>
+            <option value="The Drama" data-price="60">The Drama — BWP 60</option>
+            <option value="Spider-Man: Beyond the Spider-Verse" data-price="80">Spider-Man: Beyond the Spider-Verse — BWP 80</option>
+            <option value="Blended" data-price="60">Blended — BWP 60</option>
+            <option value="Mission Storm" data-price="70">Mission Storm — BWP 70</option>
+            <option value="Homebound" data-price="65">Homebound — BWP 65</option>
+            <option value="Laugh Trip" data-price="60">Laugh Trip — BWP 60</option>
+          </select>
+          <p class="error-msg" id="err-movie" role="alert"></p>
+        </div>
+
+        <!-- date and showtime -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">Date *</label>
+            <input type="date" id="date" required aria-required="true">
+            <p class="error-msg" id="err-date" role="alert"></p>
+          </div>
+          <div class="form-group">
+            <label for="showtime">Showtime *</label>
+            <select id="showtime" required aria-required="true">
+              <option value="">Select time...</option>
+              <option>10:00</option>
+              <option>13:00</option>
+              <option>16:00</option>
+              <option>19:00</option>
+              <option>21:30</option>
+            </select>
+            <p class="error-msg" id="err-showtime" role="alert"></p>
+          </div>
+        </div>
+
+        <!-- TICKETS -->
+        <div class="form-group">
+          <label for="tickets">Number of Tickets *</label>
+          <select id="tickets" style="max-width: 160px;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <!-- SEATS -->
+        <h2 style="margin-top: 10px;">Choose Seats</h2>
+        <p style="font-size: 13px; color: #666; margin-bottom: 14px;">
+          Click a seat to select it. Select the same number as your tickets.
+        </p>
+
+        <div class="screen">S &nbsp; C &nbsp; R &nbsp; E &nbsp; E &nbsp; N</div>
+
+        <div class="seat-grid" id="seat-map" role="group" aria-label="Seat selection">
+          <div class="seat available" data-seat="A1">A1</div>
+          <div class="seat available" data-seat="A2">A2</div>
+          <div class="seat taken"    data-seat="A3">A3</div>
+          <div class="seat available" data-seat="A4">A4</div>
+          <div class="seat available" data-seat="A5">A5</div>
+          <div class="seat taken"    data-seat="A6">A6</div>
+          <div class="seat available" data-seat="A7">A7</div>
+          <div class="seat available" data-seat="A8">A8</div>
+
+          <div class="seat available" data-seat="B1">B1</div>
+          <div class="seat taken"    data-seat="B2">B2</div>
+          <div class="seat available" data-seat="B3">B3</div>
+          <div class="seat available" data-seat="B4">B4</div>
+          <div class="seat taken"    data-seat="B5">B5</div>
+          <div class="seat available" data-seat="B6">B6</div>
+          <div class="seat available" data-seat="B7">B7</div>
+          <div class="seat available" data-seat="B8">B8</div>
+
+          <div class="seat available" data-seat="C1">C1</div>
+          <div class="seat available" data-seat="C2">C2</div>
+          <div class="seat available" data-seat="C3">C3</div>
+          <div class="seat taken"    data-seat="C4">C4</div>
+          <div class="seat available" data-seat="C5">C5</div>
+          <div class="seat available" data-seat="C6">C6</div>
+          <div class="seat taken"    data-seat="C7">C7</div>
+          <div class="seat available" data-seat="C8">C8</div>
+
+          <div class="seat available" data-seat="D1">D1</div>
+          <div class="seat available" data-seat="D2">D2</div>
+          <div class="seat taken"    data-seat="D3">D3</div>
+          <div class="seat available" data-seat="D4">D4</div>
+          <div class="seat available" data-seat="D5">D5</div>
+          <div class="seat available" data-seat="D6">D6</div>
+          <div class="seat available" data-seat="D7">D7</div>
+          <div class="seat taken"    data-seat="D8">D8</div>
+        </div>
+
+        <div class="seat-legend">
+          <div class="legend-item">
+            <div class="legend-dot available"></div> Available
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot selected"></div> Selected
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot taken"></div> Taken
+          </div>
+        </div>
+
+        <p class="error-msg" id="err-seats" role="alert"></p>
+
+        <!-- YOUR DETAILS -->
+        <h2>Your Details</h2>
+
+        <div class="form-group" style="margin-top: 16px;">
+          <label for="fullname">Full Name *</label>
+          <input type="text" id="fullname"
+                 placeholder="Enter your full name"
+                 required aria-required="true"
+                 minlength="2" maxlength="100"
+                 autocomplete="name">
+          <p class="error-msg" id="err-name" role="alert"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email"
+                 placeholder="Enter your email"
+                 required aria-required="true"
+                 autocomplete="email">
+          <p class="error-msg" id="err-email" role="alert"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone"
+                 placeholder="+267 7XX XXXX"
+                 required aria-required="true"
+                 minlength="7" maxlength="20"
+                 pattern="[\+\d\s\-]{7,20}"
+                 autocomplete="tel">
+          <p class="error-msg" id="err-phone" role="alert"></p>
+        </div>
+
+        <button class="btn" id="confirm-btn" style="width: 100%; margin-top: 8px;">
+          Confirm Booking
+        </button>
+
+        <div class="success-msg" id="booking-success" role="alert">
+          ✅ <strong>Booking Confirmed!</strong> A confirmation will be sent to your email.
+        </div>
+
+      </div><!-- /booking-form-card -->
+
+      <!-- RIGHT: SUMMARY -->
+      <aside class="booking-summary-card" aria-label="Booking summary">
+        <h3>Booking Summary</h3>
+
+        <div class="summary-row">
+          <span>Movie</span>
+          <span id="sum-movie">—</span>
+        </div>
+        <div class="summary-row">
+          <span>Date</span>
+          <span id="sum-date">—</span>
+        </div>
+        <div class="summary-row">
+          <span>Time</span>
+          <span id="sum-time">—</span>
+        </div>
+        <div class="summary-row">
+          <span>Seats</span>
+          <span id="sum-seats">—</span>
+        </div>
+        <div class="summary-row">
+          <span>Tickets</span>
+          <span id="sum-tickets">—</span>
+        </div>
+
+        <div class="summary-total">
+          <span>Total</span>
+          <span id="sum-total">BWP —</span>
+        </div>
+
+        <p style="font-size: 12px; color: #888; margin-top: 12px;">
+          Prices from BWP 60/ticket.
+        </p>
+      </aside>
+
+    </div><!-- /booking-wrapper -->
+
+  </main>
 <!-- FOOTER -->
 <footer class="footer">
 
@@ -52,6 +243,7 @@
     </div>
 
     <p>&copy; 2026 Stellar Cinemas, Gaborone. All Rights Reserved.</p>
+    <script src="main.js"></script>
 
 </footer>
 
