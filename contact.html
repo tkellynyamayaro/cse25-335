@@ -1,83 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stellar Cinemas – Contact</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Stellar Cinemas — send feedback">
+  <title>Stellar Cinemas – Contact</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="logo">★ Stellar Cinemas</div>
-
-    <ul class="nav-links">
+  <header>
+    <nav class="navbar" >
+      <div class="logo">★ Stellar Cinemas</div>
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="nowshowing.html">Now Showing</a></li>
-        <li><a href="movies.html">Movies</a></li>
         <li><a href="bookings.html">Bookings</a></li>
         <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-</nav>
+        <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <main>
 
-<!-- PAGE HEADER -->
-<section class="page-header">
-    <h1>Contact & Feedback</h1>
-    <p>We’d love to hear from you. Fill in the form below.</p>
-</section>
+    <section class="page-header" aria-label="Page title">
+      <h1>Contact & Feedback</h1>
+      <p>We'd love to hear from you. Fill in the form below.</p>
+    </section>
 
+    <section class="section contact-layout" >
+      <h2 id="contact-heading" class="visually-hidden">Contact form and information</h2>
 
-<!-- CONTACT SECTION -->
-<section class="section contact-layout">
+      <!-- FEEDBACK FORM -->
+      <div class="contact-form-card">
+        <h2>Send Us a Message</h2>
 
-    <!-- FEEDBACK FORM -->
-    
+        <form id="contact-form" >
 
-    
-    <!-- CONTACT INFO -->
-    <aside class="contact-info">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullname">Full Name *</label>
+              <input type="text" id="fullname"
+                     placeholder="Your full name"
+                     required aria-required="true"
+                     minlength="2" maxlength="100"
+                     autocomplete="name">
+              <p class="error-msg" id="err-name" role="alert"></p>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email"
+                     placeholder="your@email.com"
+                     required aria-required="true"
+                     autocomplete="email">
+              <p class="error-msg" id="err-email" role="alert"></p>
+            </div>
+          </div>
 
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone"
+                     placeholder="+267 7XX XXXX"
+                     pattern="[\+\d\s\-]{7,20}"
+                     maxlength="20"
+                     autocomplete="tel">
+              <p class="error-msg" id="err-phone" role="alert"></p>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <select id="subject" required aria-required="true">
+                <option value="">Select a subject...</option>
+                <option value="enquiry">General Enquiry</option>
+                <option value="booking">Booking Issue</option>
+                <option value="complaint">Complaint</option>
+                <option value="compliment">Compliment</option>
+                <option value="other">Other</option>
+              </select>
+              <p class="error-msg" id="err-subject" role="alert"></p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message *</label>
+            <textarea id="message"
+                      rows="5"
+                      placeholder="Type your message here..."
+                      required aria-required="true"
+                      minlength="10" maxlength="2000"
+                      style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:6px; font-size:14px; font-family:'Segoe UI',Arial,sans-serif; resize:vertical;"></textarea>
+            <p class="error-msg" id="err-message" role="alert"></p>
+          </div>
+
+          
+
+          <button type="submit" class="btn" style="width: 100%;">
+            Submit Feedback
+          </button>
+
+          <p style="font-size: 12px; color: #888; margin-top: 8px;">* Required fields</p>
+
+        </form>
+
+        <div class="success-msg" id="form-success" role="alert">
+          ✅ <strong>Thank you!</strong> Your message has been received. We'll be in touch shortly.
+        </div>
+
+      </div>
+
+      <!-- CONTACT INFO -->
+      <aside class="contact-info" aria-label="Contact details">
         <h2>Get in Touch</h2>
 
-        <p>
+        <address style="font-style: normal;">
+          <p>
             <strong>Address:</strong><br>
             Plot 1234, Molapo Crossing<br>
             Gaborone, Botswana
-        </p>
-
-        <p>
+          </p>
+          <p>
             <strong>Phone:</strong><br>
-            +267 395 1234
-        </p>
-
-        <p>
+            <a href="tel:+26739512344">+267 395 1234</a>
+          </p>
+          <p>
             <strong>Email:</strong><br>
-            info@stellarcinemas.bw
-        </p>
+            <a href="mailto:info@stellarcinemas.bw">info@stellarcinemas.bw</a>
+          </p>
+        </address>
 
         <p><strong>Follow Us:</strong></p>
-
         <div class="social-buttons">
-            <a href="#" class="btn-sm">Facebook</a>
-            <a href="#" class="btn-sm">Instagram</a>
-            <a href="#" class="btn-sm">Twitter</a>
+          <a href="#" class="btn-sm" aria-label="Facebook">Facebook</a>
+          <a href="#" class="btn-sm" aria-label="Instagram">Instagram</a>
+          <a href="#" class="btn-sm" aria-label="Twitter">Twitter</a>
         </div>
 
         <p class="note">
-            Opening hours are listed on the
-            <a href="about.html">About Us</a> page.
+          Opening hours are on the <a href="about.html">About Us</a> page.
         </p>
+      </aside>
 
-    </aside>
+    </section>
 
-</section>
-
-
-<!-- FOOTER -->
+  </main>
+  
+<!-- FOOTER-->
 <footer class="footer">
 
     <div class="footer-links">
@@ -96,7 +164,7 @@
 
     <p>&copy; 2026 Stellar Cinemas, Gaborone. All Rights Reserved.</p>
 
-</footer>
+  <script src="main.js"></script>
 
 </body>
 </html>
