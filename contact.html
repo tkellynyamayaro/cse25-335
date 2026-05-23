@@ -144,8 +144,10 @@
 document.getElementById("contact-form").addEventListener("submit", function(e){
   e.preventDefault();
 
-  document.getElementById("success-msg").style.display = "block";
-  this.reset();
+  if (this.checkValidity()) {
+    document.getElementById("success-msg").style.display = "block";
+    this.reset();
+  }
 });
 </script>
 
